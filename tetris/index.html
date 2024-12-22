@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Tetris</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1 class="game-title">Modern Tetris</h1>
+    
+    <div class="game-container">
+        <div class="game-board">
+            <canvas id="game"></canvas>
+        </div>
+        <div class="game-info">
+            <div class="info-box">
+                <h3>Score: <span id="score">0</span></h3>
+                <h3>Level: <span id="level">1</span></h3>
+                <h3>Lines: <span id="lines">0</span></h3>
+                <h3>High Score: <span id="highScore">0</span></h3>
+                <div class="volume-control">
+                    <button id="mute">🔊</button>
+                    <input type="range" id="volume" min="0" max="100" value="30">
+                </div>
+            </div>
+            <div class="info-box">
+                <h3>Hold Piece</h3>
+                <canvas id="hold-piece" class="piece-preview"></canvas>
+            </div>
+            <div class="info-box">
+                <h3>Next Piece</h3>
+                <canvas id="next-piece" class="piece-preview"></canvas>
+            </div>
+            <div class="controls">
+                <p>← → : Move</p>
+                <p>↓ : Soft Drop</p>
+                <p>Space : Hard Drop</p>
+                <p>↑ : Rotate</p>
+                <p>C : Hold Piece</p>
+                <p>P : Pause</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-controls">
+        <button class="mobile-btn" data-action="rotate">↻</button>
+        <button class="mobile-btn" data-action="left">←</button>
+        <button class="mobile-btn" data-action="right">→</button>
+        <button class="mobile-btn" data-action="down">↓</button>
+        <button class="mobile-btn" data-action="hold">H</button>
+        <button class="mobile-btn" data-action="drop">⇓</button>
+    </div>
+
+    <div id="pause-menu" class="overlay">
+        <h2>PAUSED</h2>
+        <p>Press P to resume</p>
+        <button onclick="game.togglePause()">Resume</button>
+    </div>
+
+    <div id="game-over" class="overlay">
+        <h2>GAME OVER</h2>
+        <p>Score: <span id="final-score">0</span></p>
+        <div class="high-scores">
+            <h3>High Scores</h3>
+            <ol id="high-scores-list"></ol>
+        </div>
+        <button onclick="game.reset()">Play Again</button>
+    </div>
+
+    <script src="js/pieces.js"></script>
+    <script src="js/sound.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>

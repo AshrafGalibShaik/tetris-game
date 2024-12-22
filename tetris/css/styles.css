@@ -1,0 +1,245 @@
+:root {
+    --primary-color: #4CAF50;
+    --primary-hover: #45a049;
+    --background-dark: #1a1a1a;
+    --background-medium: #2a2a2a;
+    --background-light: #333;
+    --text-color: #ffffff;
+    --text-muted: #aaaaaa;
+    --border-color: #444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-dark);
+    color: var(--text-color);
+    font-family: 'Roboto', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.game-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.game-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: var(--background-medium);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.game-board {
+    position: relative;
+}
+
+canvas {
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.game-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 200px;
+}
+
+.info-box {
+    background: var(--background-light);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.piece-preview {
+    width: 100px;
+    height: 100px;
+    background: #000;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.controls {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: var(--text-muted);
+}
+
+.controls p {
+    margin: 5px 0;
+}
+
+.overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.95);
+    padding: 30px 50px;
+    border-radius: 15px;
+    text-align: center;
+    display: none;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--border-color);
+}
+
+button {
+    background: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.high-scores {
+    margin-top: 20px;
+}
+
+.high-scores h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.high-scores li {
+    margin: 8px 0;
+    padding: 5px 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+}
+
+.mobile-controls {
+    display: none;
+    margin-top: 20px;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.mobile-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.mobile-btn:active {
+    background: var(--primary-color);
+    transform: scale(0.95);
+}
+
+.flash {
+    animation: flash 0.3s;
+}
+
+@keyframes flash {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .game-info {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .info-box {
+        min-width: 150px;
+    }
+
+    .mobile-controls {
+        display: flex;
+    }
+
+    .controls {
+        display: none;
+    }
+
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Touch Controls */
+.touch-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+@media (max-width: 768px) {
+    .touch-controls {
+        display: flex;
+    }
+}
