@@ -57,6 +57,7 @@ The game is built using:
 - JavaScript for game logic
 - Local Storage for high score persistence
 
+
 ## File Structure
 
 ```
