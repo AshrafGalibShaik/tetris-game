@@ -51,6 +51,7 @@ A modern implementation of the classic Tetris game with enhanced features and re
 
 ## Technical Details
 
+
 The game is built using:
 - HTML5 Canvas for rendering
 - CSS3 for styling and animations
