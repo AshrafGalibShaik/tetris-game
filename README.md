@@ -17,6 +17,7 @@ A modern implementation of the classic Tetris game with enhanced features and re
 
 ## Controls
 
+
 ### Desktop
 - ⬅️ ➡️ Arrow keys: Move piece
 - ⬆️ Up Arrow: Rotate piece
