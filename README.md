@@ -17,8 +17,8 @@ A modern implementation of the classic Tetris game with enhanced features and re
 
 ## Controls
 
-
 ### Desktop
+
 - ⬅️ ➡️ Arrow keys: Move piece
 - ⬆️ Up Arrow: Rotate piece
 - ⬇️ Down Arrow: Soft drop
@@ -28,6 +28,7 @@ A modern implementation of the classic Tetris game with enhanced features and re
 - Enter: Restart after game over
 
 ### Mobile
+
 - Swipe left/right: Move piece
 - Tap: Rotate piece
 - Swipe down: Soft drop
@@ -52,13 +53,12 @@ A modern implementation of the classic Tetris game with enhanced features and re
 
 ## Technical Details
 
-
 The game is built using:
+
 - HTML5 Canvas for rendering
 - CSS3 for styling and animations
 - JavaScript for game logic
 - Local Storage for high score persistence
-
 
 ## File Structure
 
